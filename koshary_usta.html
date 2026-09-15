@@ -25,16 +25,73 @@
   --ui: "Cairo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --disp: "Lalezar", "Cairo", system-ui, sans-serif;
   --ow:2.5px;               /* standard cartoon outline weight */
+
+  /* ---- design-system layer (design-system/tokens) ----
+     The raw palette above is the source of truth; these are the semantic names
+     the design system uses, so anything authored against it drops in unedited.
+     See design-system/STATUS.md before designing against that folder. */
+  --void:#160A06; --theme-color:#150F0C; --photo-sky:#5C86C4;
+
+  --surface-app:var(--night); --surface-void:var(--void);
+  --surface-hud:linear-gradient(180deg,#8F9BAA 0%,#6B7888 40%,#54606E 62%,#3A4552 100%);
+  --surface-dock:linear-gradient(180deg,#3A2318,#1E1009);
+  --surface-card:linear-gradient(172deg,#50301E,#2E1A10);
+  --surface-slip:linear-gradient(178deg,#FFF8E6,#F3E3C0);
+  --surface-row:#3C2417; --surface-row-total:#5A3720; --surface-chip:#2B1A12;
+  --surface-iconbtn:#3A2A1E; --surface-combo:#2A1020; --surface-well:#1B0E08;
+  --surface-tag:#54341F; --surface-ok:#2E6B45; --surface-no:#8C2E26;
+  --surface-prep-done:#33452F; --surface-prep-empty:#4E2420;
+  --surface-upico:linear-gradient(160deg,#6B4F3A,#3A2618);
+  --surface-disabled:#4A3A2C;
+  --surface-overlay:radial-gradient(120% 90% at 50% 30%,rgba(70,30,16,.80),rgba(8,4,2,.92));
+
+  --btn-brass:linear-gradient(180deg,var(--brass-hi) 0%,var(--brass) 55%,var(--brass-lo) 100%);
+  --btn-ghost:linear-gradient(180deg,#6B5140,#42301F);
+  --btn-hot:linear-gradient(180deg,#FF8C6B,var(--salsa));
+  --btn-go:linear-gradient(180deg,#8CF0A8,#2FB566);
+
+  --text-body:#F2E9DC; --text-head:#FFE9BC; --text-lead:#FFF1DC; --text-soft:#EBD9C0;
+  --text-muted:#CBB69C; --text-faint:#C3AE94; --text-label:#D6C0A4; --text-value:#FFF0D6;
+  --text-on-brass:#2A1608; --text-on-ink:#FFEDD2; --text-title:#FFD97A;
+  --text-disabled:#9A8973; --text-star-empty:#5A4636; --text-combo:#FFD9F4;
+
+  --tint-ramadan:#4A4A8C; --tint-school:#E0913A; --tint-critic:#8A6FB0;
+
+  /* the seven things on the counter, face + shade, matching ING in the script */
+  --ing-rzmix:#E4CB98;   --ing-rzmix-shade:#8A5C33;
+  --ing-ruz:#EBD5A4;     --ing-ruz-shade:#9A6A3A;
+  --ing-maca:#F2E1AE;    --ing-maca-shade:#D9BE81;
+  --ing-ads:#7C5432;     --ing-ads-shade:#4E3320;
+  --ing-homos:#D8B878;   --ing-homos-shade:#B08F52;
+  --ing-salsa:#B0301E;   --ing-salsa-shade:#7C1E11;
+  --ing-taqleya:#E09A3C; --ing-taqleya-shade:#A35F18;
+
+  --radius-slip:5px; --radius-iconbtn:9px; --radius-rows:12px; --radius-photo:12px;
+  --radius-btn:13px; --radius-shout:14px; --radius-up:14px; --radius-prep:14px;
+  --radius-event:16px; --radius-card:20px; --radius-pill:999px;
+
+  --shadow-btn:0 4px 0 var(--ink), 0 8px 16px rgba(0,0,0,.45);
+  --shadow-card:0 7px 0 var(--ink), 0 26px 54px rgba(0,0,0,.7);
+  --shadow-slip:0 5px 0 rgba(0,0,0,.35), 0 9px 20px rgba(0,0,0,.45);
+  --shadow-chip:0 2px 0 rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.14);
+  --shadow-iconbtn:0 2px 0 rgba(0,0,0,.45);
+  --shadow-hud:0 3px 0 rgba(0,0,0,.45);
+  --shadow-toast:0 4px 0 var(--ink);
+
+  --ease-spring:cubic-bezier(.34,1.7,.5,1);
+  --ease-spring-pop:cubic-bezier(.34,1.8,.5,1);
+  --ease-shake:cubic-bezier(.36,.07,.19,.97);
+  --dur-press:70ms; --dur-fade:200ms; --dur-meter:350ms; --dur-card-in:380ms;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#160A06}
-body{font-family:var(--ui);color:#F2E9DC;overscroll-behavior:none;
+html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--void)}
+body{font-family:var(--ui);color:var(--text-body);overscroll-behavior:none;
   touch-action:manipulation;user-select:none;-webkit-user-select:none}
 /* The frame is sized and zoomed by frameFit() so one layout serves a phone,
    a tablet and a desktop: width/height are set in unzoomed px, `zoom` scales
    the whole chrome with the viewport. margin:auto centres it in the letterbox. */
 #app{position:fixed;inset:0;margin:auto;display:flex;flex-direction:column;
-  width:100%;height:100%;background:var(--night);overflow:hidden;
+  width:100%;height:100%;background:var(--surface-app);overflow:hidden;
   box-shadow:0 0 60px rgba(0,0,0,.8)}
 #app.shake{animation:shakeIt .32s cubic-bezier(.36,.07,.19,.97) both}
 @keyframes shakeIt{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}
@@ -43,23 +100,23 @@ body{font-family:var(--ui);color:#F2E9DC;overscroll-behavior:none;
 /* ---------- HUD : a brushed steel rail ---------- */
 #hud{flex:0 0 auto;position:relative;display:flex;align-items:center;gap:5px;padding:6px 9px;
   padding-top:max(6px,env(safe-area-inset-top));
-  background:linear-gradient(180deg,#8F9BAA 0%,#6B7888 40%,#54606E 62%,#3A4552 100%);
-  border-bottom:var(--ow) solid var(--ink);box-shadow:0 3px 0 rgba(0,0,0,.45);z-index:6}
+  background:var(--surface-hud);
+  border-bottom:var(--ow) solid var(--ink);box-shadow:var(--shadow-hud);z-index:6}
 #hud::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:rgba(255,255,255,.5)}
-.chip{display:flex;align-items:center;gap:4px;background:#2B1A12;
-  border:2px solid var(--ink);border-radius:999px;padding:3px 9px;
+.chip{display:flex;align-items:center;gap:4px;background:var(--surface-chip);
+  border:2px solid var(--ink);border-radius:var(--radius-pill);padding:3px 9px;
   font-size:12.5px;font-weight:800;letter-spacing:.2px;white-space:nowrap;
-  box-shadow:0 2px 0 rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.14)}
+  box-shadow:var(--shadow-chip)}
 .chip b{font-weight:900;font-size:13.5px}
 .chip.money b{color:var(--brass-hi)}
 .chip.rep b{color:var(--ward-hi)}
 .chip.bump{animation:chipBump .36s cubic-bezier(.34,1.7,.5,1)}
 @keyframes chipBump{0%{transform:scale(1)}40%{transform:scale(1.22) rotate(-3deg)}100%{transform:scale(1)}}
 #hudSpacer{flex:1}
-.iconbtn{width:32px;height:32px;border-radius:9px;border:2px solid var(--ink);
-  background:#3A2A1E;color:#FFEDD2;font-size:14px;font-weight:800;
+.iconbtn{width:32px;height:32px;border-radius:var(--radius-iconbtn);border:2px solid var(--ink);
+  background:var(--surface-iconbtn);color:var(--text-on-ink);font-size:14px;font-weight:800;
   display:grid;place-items:center;cursor:pointer;font-family:var(--ui);padding:0;
-  box-shadow:0 2px 0 rgba(0,0,0,.45)}
+  box-shadow:var(--shadow-iconbtn)}
 .iconbtn:active{transform:translateY(2px);box-shadow:none}
 
 /* combo / koshary-symphony meter, rides under the HUD */
@@ -69,8 +126,8 @@ body{font-family:var(--ui);color:#F2E9DC;overscroll-behavior:none;
   transition:opacity .18s, transform .22s cubic-bezier(.34,1.8,.5,1)}
 html[dir="ltr"] #combo{transform-origin:top left}
 #combo.on{opacity:1;transform:scale(1)}
-#comboIn{display:flex;align-items:center;gap:6px;background:#2A1020;
-  border:var(--ow) solid var(--ink);border-radius:999px;padding:3px 12px;
+#comboIn{display:flex;align-items:center;gap:6px;background:var(--surface-combo);
+  border:var(--ow) solid var(--ink);border-radius:var(--radius-pill);padding:3px 12px;
   box-shadow:0 3px 0 rgba(0,0,0,.45)}
 #comboIn b{font-family:var(--disp);font-size:19px;line-height:1;color:var(--combo);
   text-shadow:0 2px 0 var(--ink)}
@@ -80,7 +137,7 @@ html[dir="ltr"] #combo{transform-origin:top left}
 #comboBar i{display:block;height:100%;background:var(--combo);transition:width .12s linear}
 
 /* ---------- stage ---------- */
-#stage{position:relative;flex:1 1 auto;min-height:0;overflow:hidden;background:var(--night)}
+#stage{position:relative;flex:1 1 auto;min-height:0;overflow:hidden;background:var(--surface-app)}
 #cv{position:absolute;inset:0;width:100%;height:100%;display:block}
 #fx{position:absolute;inset:0;pointer-events:none}
 
@@ -201,7 +258,7 @@ html[dir="ltr"] #combo{transform-origin:top left}
 
 /* ---------- overlay / cards ---------- */
 #ov{position:absolute;inset:0;z-index:40;display:none;align-items:center;justify-content:center;
-  padding:16px;background:radial-gradient(120% 90% at 50% 30%,rgba(70,30,16,.80),rgba(8,4,2,.92));
+  padding:16px;background:var(--surface-overlay);
   backdrop-filter:blur(3px)}
 #ov.on{display:flex}
 #ovIn{width:100%;max-width:430px;max-height:92%;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -332,9 +389,9 @@ kbd{background:rgba(255,255,255,.1);border-radius:4px;padding:1px 5px;font-famil
 
 /* toast */
 #toast{position:absolute;left:50%;transform:translateX(-50%) scale(.8);bottom:86px;z-index:50;
-  background:var(--paper);border:var(--ow) solid var(--ink);border-radius:999px;
+  background:var(--paper);border:var(--ow) solid var(--ink);border-radius:var(--radius-pill);
   padding:8px 16px;font-size:13px;font-weight:900;color:var(--ink);opacity:0;
-  box-shadow:0 4px 0 var(--ink);
+  box-shadow:var(--shadow-toast);
   transition:opacity .2s, transform .26s cubic-bezier(.34,1.8,.5,1);
   pointer-events:none;max-width:86%;text-align:center}
 #toast.on{opacity:1;transform:translateX(-50%) translateY(-6px) scale(1)}
@@ -1118,6 +1175,37 @@ function steam(x,y,rx,strength,tm,tint){
 const SKIN = ['#C98A5E','#E0A877','#F0C79A','#A9683F','#D79B6B','#B87A4E'];
 const CLOTH= ['#3E7BA8','#8C5AA8','#2FA878','#C4523F','#5A62B8','#D49A2A',
               '#6FA83E','#E0713A','#3A8FA8','#8A8F99'];
+/* ---------------------------------------------------------------- art slots
+   The design system specifies the frame, mood ring, sizes and colour treatment
+   for painted customer portraits but ships no art — design-system/assets is
+   empty and readme.md lists the portraits under Known gaps. The procedural
+   character drawn by drawPerson() below is the stand-in until art arrives;
+   registerPortrait('tourist', url) is the whole integration point, and matches
+   the `art` prop contract in design-system/components/game/CustomerFigure.jsx.
+   Thresholds follow the patience ramp: above .6 good, .6-.3 warn, below fail. */
+const ART = { portrait:{} };
+function registerPortrait(arch, src){
+  const im = new Image();
+  im.onload = () => { ART.portrait[arch] = im; };
+  im.src = src;
+}
+function moodRing(mood){ return mood>0.6 ? '#59D97C' : mood>0.3 ? '#FFC93C' : '#FF5F52'; }
+function drawPortraitArt(im, x, baseY, h, mood){
+  const w = h*0.66, top = baseY - h, ring = moodRing(mood);
+  /* a tint halo under a mood ring, per the portrait spec. Faces never mirror
+     under RTL, so this draws in scene space with no direction flip. */
+  cx.save();
+  cx.globalAlpha = .22; cx.fillStyle = ring;
+  rr(x-w/2-4, top-4, w+8, h+8, 16); cx.fill();
+  cx.globalAlpha = 1;
+  cx.save(); rr(x-w/2, top, w, h, 12); cx.clip();
+  cx.drawImage(im, x-w/2, top, w, h);
+  cx.restore();
+  cx.strokeStyle = ring; cx.lineWidth = 3;
+  rr(x-w/2, top, w, h, 12); cx.stroke();
+  cx.restore();
+}
+
 function makeLook(i,arch){
   const r=n=>sr(i*13.7+n);
   return {
@@ -1143,6 +1231,10 @@ function drawPerson(x,baseY,h,lk,tm,i,mood,hot){
   const lean = Math.sin(tm*0.0013+i*2.2)*0.035 + anx*0.05;
   cx.save();
   cx.translate(x+jitter, y); cx.rotate(lean); cx.translate(-x, -y);
+
+  /* a registered portrait replaces the procedural figure entirely */
+  const art = ART.portrait[lk.arch];
+  if(art){ drawPortraitArt(art, x, y, h, mood); cx.restore(); return; }
 
   /* ground shadow keeps them planted */
   cx.save(); cx.globalAlpha=.28; cx.fillStyle='#1A0B05';
