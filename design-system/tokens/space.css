@@ -1,0 +1,70 @@
+/* The game is a 560px-max portrait phone frame, so spacing is tight and
+   odd-numbered — these are the literal paddings and gaps in the source, not a
+   rounded scale. Use them as-is; snapping to 4/8 changes the density. */
+:root {
+  --space-1: 2px;
+  --space-2: 3px;
+  --space-3: 4px;
+  --space-4: 5px;
+  --space-5: 6px;
+  --space-6: 7px;
+  --space-7: 8px;
+  --space-8: 9px;
+  --space-9: 10px;
+  --space-10: 11px;
+  --space-11: 12px;
+  --space-12: 13px;
+  --space-13: 14px;
+  --space-14: 15px;
+  --space-15: 16px;
+  --space-16: 18px;
+  --space-17: 20px;
+  --space-18: 22px;
+  --space-19: 26px;
+
+  /* gaps, as used */
+  --gap-rows: 2.5px;
+  --gap-chip: 4px;
+  --gap-hud: 5px;
+  --gap-combo: 6px;
+  --gap-dock: 7px;
+  --gap-stars: 7px;
+  --gap-prep: 8px;
+  --gap-up: 10px;
+
+  /* component padding shorthands */
+  --pad-hud: 6px 9px; /* @kind spacing */
+  --pad-chip: 3px 9px; /* @kind spacing */
+  --pad-slip: 7px 9px 8px; /* @kind spacing */
+  --pad-dock: 8px 9px; /* @kind spacing */
+  --pad-card: 16px 15px; /* @kind spacing */
+  --pad-event: 12px 14px; /* @kind spacing */
+  --pad-up: 10px;
+  --pad-prep: 9px;
+  --pad-row: 9px 12px; /* @kind spacing */
+  --pad-tag: 3px 9px; /* @kind spacing */
+  --pad-eyebrow: 2px 9px; /* @kind spacing */
+  --pad-shout: 6px 11px; /* @kind spacing */
+  --pad-toast: 8px 16px; /* @kind spacing */
+  --pad-overlay: 16px;
+
+  /* the frame */
+  --app-max: 560px;
+  --overlay-max: 430px;
+  --event-max: 340px;
+  --slip-max: 200px;
+
+  /* hit targets */
+  --size-btn: 46px;
+  --size-iconbtn: 32px;
+  --size-upbuy-h: 38px;
+  --size-upbuy-w: 66px;
+  --size-upico: 46px;
+
+  /* meters */
+  --h-meter: 10px;
+  --h-patience: 11px;
+  --w-patience: 74px;
+  --h-combo-bar: 6px;
+  --w-combo-bar: 54px;
+}

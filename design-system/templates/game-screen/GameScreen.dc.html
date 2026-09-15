@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Game screen" description="Koshary Usta gameplay frame — street backdrop, HUD bar, customer queue and tiled counter, at 1280×720." -->
+<helmet>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="./ds-base.js"></script>
+<style>@keyframes ks-tpl-steam{0%{opacity:0;transform:translateY(0) scale(.7)}35%{opacity:.85}100%{opacity:0;transform:translateY(-34px) scale(1.5)}}</style>
+</helmet>
+<div dir="ltr" style="position:relative;width:1280px;height:720px;overflow:hidden;background:#241611;font-family:'Cairo',system-ui,sans-serif">
+  <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 12%, #7a4a28 0%, #4b2e1c 46%, #241611 100%)"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;filter:blur(9px);opacity:.85">
+    <div style="position:absolute;inset-block-end:120px;inset-inline-start:60px;width:150px;height:210px;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#6a4126,#3a2317)"></div>
+    <div style="position:absolute;inset-block-end:166px;inset-inline-start:265px;width:150px;height:300px;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#7d5130,#412818)"></div>
+    <div style="position:absolute;inset-block-end:212px;inset-inline-start:470px;width:150px;height:210px;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#6a4126,#3a2317)"></div>
+    <div style="position:absolute;inset-block-end:120px;inset-inline-start:675px;width:150px;height:300px;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#7d5130,#412818)"></div>
+    <div style="position:absolute;inset-block-end:166px;inset-inline-start:880px;width:150px;height:210px;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#6a4126,#3a2317)"></div>
+    <div style="position:absolute;inset-block-start:90px;inset-inline-start:120px;width:26px;height:26px;border-radius:50%;background:rgba(227,176,75,.75);filter:blur(3px)"></div>
+    <div style="position:absolute;inset-block-start:206px;inset-inline-start:430px;width:26px;height:26px;border-radius:50%;background:rgba(226,132,44,.6);filter:blur(3px)"></div>
+    <div style="position:absolute;inset-block-start:148px;inset-inline-start:800px;width:26px;height:26px;border-radius:50%;background:rgba(227,176,75,.75);filter:blur(3px)"></div>
+  </div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 78%, rgba(227,176,75,.22), transparent 70%)"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;box-shadow:inset 0 0 180px 60px rgba(20,11,7,.7)"></div>
+  <div aria-hidden="true" style="position:absolute;inset-block-start:26px;inset-inline:-10px;height:3px;background:rgba(36,22,17,.55);border-radius:2px"></div>
+  <div style="position:relative;display:flex;flex-direction:column;height:100%;z-index:2">
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 20px">
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.StatReadout" label="Pounds" value="1,240" hint-size="130px,54px"></x-import>
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.StatReadout" label="Rep" value="4.6" tone="herb" hint-size="110px,54px"></x-import>
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.StatReadout" label="Orders" value="5" tone="clay" hint-size="110px,54px"></x-import>
+      <div style="margin-inline-start:auto;display:flex;align-items:center;gap:14px">
+        <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.ComboMeter" streak="{{ streak }}" multiplier="{{ multiplier }}" hint-size="150px,48px"></x-import>
+      </div>
+    </div>
+    <div style="padding:0 20px">
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.EventBanner" tone="hazard" title="Friday rush" detail="The queue fills twice as fast. Keep the rice vat topped up." modifier="−20% patience" hint-size="100%,64px"></x-import>
+    </div>
+    <div style="display:flex;gap:14px;padding:18px 20px 0">
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.CustomerCard" compact="{{ true }}" archetype="Office worker" archetype-ar="موظف" mood="happy" patience="{{ 62 }}" hint-size="132px,180px"></x-import>
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.CustomerCard" compact="{{ true }}" archetype="Tourist" archetype-ar="سائح" mood="delighted" patience="{{ 88 }}" hint-size="132px,180px"></x-import>
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.CustomerCard" compact="{{ true }}" archetype="Regular" archetype-ar="زبون دايم" mood="neutral" patience="{{ 47 }}" hint-size="132px,180px"></x-import>
+      <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.CustomerCard" compact="{{ true }}" archetype="Critic" archetype-ar="ناقد" mood="annoyed" patience="{{ 18 }}" hint-size="132px,180px"></x-import>
+    </div>
+    <div style="margin-block-start:auto;position:relative;border-block-start:5px solid #8a5a2e;background:linear-gradient(180deg,#F6E8CE,#E5CEA6);box-shadow:0 -18px 48px rgba(0,0,0,.5), inset 0 8px 18px rgba(255,255,255,.5)">
+      <div aria-hidden="true" style="position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(120,79,45,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(120,79,45,.16) 1px, transparent 1px);background-size:58px 58px"></div>
+      <div style="position:relative;display:flex;align-items:flex-end;gap:18px;padding:22px 20px 26px;min-height:262px">
+        <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.OrderTicket" index="{{ 1 }}" archetype="Office worker" items="{{ order }}" note="Extra onion" note-tone="warn" hint-size="220px,200px"></x-import>
+        <div style="display:grid;grid-template-columns:repeat(4,auto);gap:14px;align-items:end">
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="rice" level="{{ 78 }}" steam="{{ true }}" active="{{ true }}" count="{{ 2 }}" hint-size="104px,120px"></x-import>
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="lentils" level="{{ 64 }}" steam="{{ true }}" count="{{ 1 }}" hint-size="104px,120px"></x-import>
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="pasta" level="{{ 52 }}" steam="{{ true }}" hint-size="104px,120px"></x-import>
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="chickpeas" level="{{ 81 }}" hint-size="104px,120px"></x-import>
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="sauce" level="{{ 44 }}" steam="{{ true }}" hint-size="104px,120px"></x-import>
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="onion" level="{{ 70 }}" hint-size="104px,120px"></x-import>
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="daqqa" level="{{ 58 }}" hint-size="104px,120px"></x-import>
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.IngredientVat" ingredient="shatta" level="{{ 33 }}" hint-size="104px,120px"></x-import>
+        </div>
+        <div style="position:relative;margin-inline-start:auto;display:flex;flex-direction:column;align-items:center;gap:14px;padding:14px 18px;border-radius:28px;background:linear-gradient(180deg, rgba(36,22,17,.14), rgba(36,22,17,.24));box-shadow:inset 0 3px 10px rgba(36,22,17,.28)">
+          <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.KosharyBowl" size="{{ 188 }}" layers="{{ layers }}" steam="{{ true }}" hint-size="188px,120px"></x-import>
+          <div style="display:flex;gap:12px">
+            <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.Button" variant="quiet" size="sm" hint-size="100px,40px">Kemala</x-import>
+            <x-import component-from-global-scope="KosharyUstaDesignSystem_f12ad9.Button" variant="brass" hint-size="100px,44px">Serve</x-import>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div aria-hidden="true" style="position:absolute;inset-block-end:0;inset-inline:0;height:18px;background:linear-gradient(180deg,#a8703f,#6b4324);border-block-start:3px solid #5e3a1c;z-index:3"></div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:720},&quot;streak&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:4,&quot;min&quot;:0,&quot;max&quot;:12,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Gameplay state&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const streak = this.props.streak ?? 4;
+    return {
+      streak,
+      multiplier: streak >= 6 ? 2 : streak >= 3 ? 1.5 : 1,
+      order: [
+        { key: "rice", qty: 2, filled: 2 },
+        { key: "lentils", qty: 1, filled: 1 },
+        { key: "pasta", qty: 1, filled: 0 },
+        { key: "sauce", qty: 1, filled: 0 }
+      ],
+      layers: [{ key: "rice", amount: 2 }, { key: "lentils" }]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

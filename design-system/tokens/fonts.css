@@ -1,0 +1,10 @@
+/* Bilingual by default: both families carry Arabic + Latin, so RTL and LTR
+   share one typographic voice. No binaries were supplied with the brief —
+   these are Google-hosted substitutions (see readme.md → Fonts). */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Lalezar&display=swap");
+
+:root {
+  --font-display: "Lalezar", "Cairo", system-ui, sans-serif;
+  --font-ui: "Cairo", system-ui, sans-serif;
+  --font-numeric: "Cairo", ui-rounded, system-ui, sans-serif;
+}

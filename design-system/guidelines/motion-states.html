@@ -1,0 +1,10 @@
+<!-- @dsCard group="Motion" viewport="700x180" name="Hover & press" subtitle="Raised things lift then physically drop. Flat things tint." -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:16px;background:var(--surface-page);font-family:var(--font-ui);color:var(--text-body)}.lbl{font:var(--fw-bold) 10px/1.2 var(--font-ui);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--text-muted)}.mono{font:var(--fw-semibold) 11px/1.4 ui-monospace,monospace;color:var(--text-muted)}</style>
+</head><body><div style="display:flex;gap:14px;align-items:center">
+<button data-ks-press style="min-height:48px;padding:var(--pad-button);border-radius:var(--radius-pill);border:2px solid var(--clay-700);background:linear-gradient(180deg,var(--clay-400),var(--clay-600));color:var(--cream-50);font:var(--fw-bold) 17px/1 var(--font-ui);box-shadow:var(--shadow-rim),var(--shadow-2);text-shadow:0 1px 0 rgba(36,22,17,.25)">Hover me</button>
+<button data-ks-press style="min-height:48px;padding:var(--pad-button);border-radius:var(--radius-pill);border:2px solid var(--brass-600);background:linear-gradient(180deg,var(--brass-300),var(--brass-500));color:var(--char-900);font:var(--fw-bold) 17px/1 var(--font-ui);box-shadow:var(--shadow-rim),var(--shadow-2)">Press me</button>
+<button data-ks-press disabled style="min-height:48px;padding:var(--pad-button);border-radius:var(--radius-pill);border:2px solid var(--cream-500);background:linear-gradient(180deg,var(--cream-50),var(--cream-200));color:var(--text-strong);font:var(--fw-bold) 17px/1 var(--font-ui);box-shadow:var(--shadow-rim),var(--shadow-1)">Disabled</button>
+<div data-ks-tint style="flex:1;padding:14px;border-radius:var(--radius-md);font:var(--fw-semibold) 14px/1 var(--font-ui)">Flat row — tints on hover</div></div>
+<p class="mono" style="margin:12px 0 0">hover: translateY(−2px) + brightness 1.04 · active: translateY(+2px), shadow collapses to --shadow-press · disabled: 45% opacity, desaturated · focus: cream ring then clay ring.</p></body></html>

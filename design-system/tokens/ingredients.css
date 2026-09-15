@@ -1,0 +1,34 @@
+/* The seven things on the counter, with the exact two-tone pair each one is
+   drawn with (col / col2 in the source) and the vessel it lives in.
+   `slang` is the counter's own word — a regular orders in it, and from
+   chapter 4 the game shows it to everyone. Never translate these away:
+   ward IS the fried onions, and the shop calls it ward. */
+:root {
+  /* rz mix — rice, lentils & vermicelli (بندق / bondo') — vat */
+  --ing-rzmix: #E4CB98;
+  --ing-rzmix-shade: #8A5C33;
+  /* ruz — rice & vermicelli (بندق / bondo') — vat */
+  --ing-ruz: #EBD5A4;
+  --ing-ruz-shade: #9A6A3A;
+  /* maca — macaroni (لوز / loz) — vat */
+  --ing-maca: #F2E1AE;
+  --ing-maca-shade: #D9BE81;
+  /* ads — brown lentils (كهرمان / kahraman) — vat */
+  --ing-ads: #7C5432;
+  --ing-ads-shade: #4E3320;
+  /* homos — chickpeas (حمص / homos) — pot */
+  --ing-homos: #D8B878;
+  --ing-homos-shade: #B08F52;
+  /* salsa — tomato sauce (مونة / moona) — sauce */
+  --ing-salsa: #B0301E;
+  --ing-salsa-shade: #7C1E11;
+  /* taqleya — crispy onions (ورد / ward) — tray. Heaviest scoop weight
+     in the game (1.45) because every source agrees the onions are the point. */
+  --ing-taqleya: #E09A3C;
+  --ing-taqleya-shade: #A35F18;
+
+  /* customer-side sauces, poured by the customer not the usta */
+  --sauce-salsa: var(--salsa);
+  --sauce-daqqa: var(--daqqa);
+  --sauce-shatta: var(--shatta);
+}

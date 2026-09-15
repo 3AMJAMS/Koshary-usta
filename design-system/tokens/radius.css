@@ -1,0 +1,26 @@
+/* Exact radii from the source. Nothing is snapped to a 4px grid — the slip is
+   5px because a paper slip has sharp corners, the buttons are 13px. */
+:root {
+  --radius-slip: 5px;
+  --radius-kbd: 4px;
+  --radius-bar: 4px;        /* combo bar */
+  --radius-iconbtn: 9px;
+  --radius-upico: 11px;
+  --radius-upbuy: 11px;
+  --radius-rows: 12px;
+  --radius-photo: 12px;
+  --radius-btn: 13px;
+  --radius-shout: 14px;
+  --radius-hero: 14px;
+  --radius-up: 14px;
+  --radius-prep: 14px;
+  --radius-event: 16px;
+  --radius-card: 20px;
+  --radius-pill: 999px;
+
+  /* The standard cartoon outline weight. --ow in the source. */
+  --outline: 2.5px;
+  --outline-thin: 2px;
+  --outline-ink: var(--outline) solid var(--ink); /* @kind other */
+  --outline-ink-thin: var(--outline-thin) solid var(--ink); /* @kind other */
+}

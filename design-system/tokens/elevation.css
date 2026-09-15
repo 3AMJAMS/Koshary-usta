@@ -1,0 +1,38 @@
+/* Hard offset shadows in ink — no blur on the cartoon layer. A raised thing
+   sits on a solid ink slab; pressing it collapses the slab to nothing and
+   moves the element down by the same distance. Soft blurred shadows appear
+   ONLY as a second, deeper ambient layer under overlays and the slip. */
+:root {
+  --shadow-btn: 0 4px 0 var(--ink), 0 8px 16px rgba(0,0,0,.45);         /* @kind other */
+  --shadow-btn-press: 0 0 0 var(--ink), 0 2px 6px rgba(0,0,0,.45);      /* @kind other */
+  --shadow-card: 0 7px 0 var(--ink), 0 26px 54px rgba(0,0,0,.7);        /* @kind other */
+  --shadow-event: 0 8px 0 rgba(0,0,0,.4), 0 18px 40px rgba(0,0,0,.55);  /* @kind other */
+  --shadow-slip: 0 5px 0 rgba(0,0,0,.35), 0 9px 20px rgba(0,0,0,.45);   /* @kind other */
+  --shadow-photo: 0 5px 0 var(--ink), 0 14px 30px rgba(0,0,0,.5);       /* @kind other */
+  --shadow-hero: 0 6px 0 var(--ink), 0 16px 34px rgba(0,0,0,.5);        /* @kind other */
+  --shadow-up: 0 4px 0 rgba(0,0,0,.4);                                  /* @kind other */
+  --shadow-upbuy: 0 3px 0 var(--ink);                                   /* @kind other */
+  --shadow-rows: 0 4px 0 rgba(0,0,0,.4);                                /* @kind other */
+  --shadow-chip: 0 2px 0 rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.14); /* @kind other */
+  --shadow-iconbtn: 0 2px 0 rgba(0,0,0,.45);                            /* @kind other */
+  --shadow-combo: 0 3px 0 rgba(0,0,0,.45);                              /* @kind other */
+  --shadow-toast: 0 4px 0 var(--ink);                                   /* @kind other */
+  --shadow-shout: 0 4px 0 rgba(0,0,0,.35);                              /* @kind other */
+  --shadow-hud: 0 3px 0 rgba(0,0,0,.45);                                /* @kind other */
+  --shadow-pat: 0 2px 0 rgba(0,0,0,.4);                                 /* @kind other */
+  --shadow-app: 0 0 60px rgba(0,0,0,.8);                                /* @kind other */
+  --shadow-eyebrow: 0 2px 0 var(--ink);                                 /* @kind other */
+
+  /* inset rings */
+  --ring-bar: inset 0 0 0 1.5px rgba(255,255,255,.2);                   /* @kind other */
+  --ring-hud-lip: rgba(255,255,255,.5);
+  --ring-prep-warn: 0 4px 0 rgba(0,0,0,.4), 0 0 0 3px rgba(255,95,82,.4); /* @kind other */
+  --glow-star: 0 0 0 var(--ink), 0 3px 0 rgba(0,0,0,.45), 0 0 16px rgba(255,190,90,.55); /* @kind other */
+  --glow-rush: inset 0 0 60px 12px rgba(255,60,60,.28);                 /* @kind other */
+
+  /* how far a pressed thing travels */
+  --press-btn: 4px;
+  --press-upbuy: 3px;
+  --press-prep: 3px;
+  --press-iconbtn: 2px;
+}

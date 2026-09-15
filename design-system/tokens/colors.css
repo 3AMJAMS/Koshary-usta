@@ -1,0 +1,110 @@
+/* Palette lifted verbatim from koshary_usta-1.html :root (commit bb2328899f7b).
+   The game is a DARK cartoon: night-brown grounds, one shared ink outline,
+   cool brushed steel for the HUD rail, brass for money, neon for the 1999+
+   shopfront. Do not lighten these — the ink outline only reads on dark. */
+:root {
+  /* Ink — the single outline colour on every solid shape. */
+  --ink: #241109;
+  --ink-soft: #3D2113;
+
+  /* Night / wall — the room itself. */
+  --night: #2A1410;
+  --wall: #4A2418;
+  --wall2: #6B3A22;
+  --void: #160A06;   /* behind the 560px app frame */
+  --theme-color: #150F0C;
+
+  /* Steel — the HUD rail, the vats, the long spoon. The only cool ramp. */
+  --steel: #B9C6D4;
+  --steel-hi: #F4F9FF;
+  --steel-lo: #5C6B7C;
+  --steel-dk: #33404F;
+
+  /* Brass — money, buttons, stars, the title. */
+  --brass: #F0A82E;
+  --brass-hi: #FFD97A;
+  --brass-lo: #B06E12;
+
+  /* Food ink — named for what it is, not for a scale step. */
+  --saffron: #FFDFA0;
+  --lentil: #8E5A2E;
+  --ward: #FFA82E;      /* taqleya / crispy onions — "the whole game" */
+  --ward-hi: #FFD27A;
+  --salsa: #E0361F;
+  --salsa-hi: #FF6A45;
+  --shatta: #FF2D18;
+  --daqqa: #FFF6E0;
+
+  /* Neon — the Shubra facade, chapters 4-5 only. */
+  --neonB: #4FC8FF;
+  --neonR: #FF4F7A;
+  --neonG: #5CE6A8;
+
+  /* Paper + sky */
+  --paper: #FFF3D8;
+  --sky: #3E5C8C;
+  --photo-sky: #5C86C4;   /* story-beat photo ground */
+
+  /* State */
+  --good: #59D97C;
+  --bad: #FF5F52;
+  --warn: #FFC93C;
+  --combo: #FF7AD9;   /* the rhythm meter. Hot pink, used nowhere else. */
+
+  /* ---- surfaces, as they actually appear ---- */
+  --surface-app: var(--night);
+  --surface-void: var(--void);
+  --surface-hud: linear-gradient(180deg, #8F9BAA 0%, #6B7888 40%, #54606E 62%, #3A4552 100%); /* @kind color */
+  --surface-dock: linear-gradient(180deg, #3A2318, #1E1009); /* @kind color */
+  --surface-card: linear-gradient(172deg, #50301E, #2E1A10); /* @kind color */
+  --surface-slip: linear-gradient(178deg, #FFF8E6, #F3E3C0); /* @kind color */
+  --surface-row: #3C2417;
+  --surface-row-total: #5A3720;
+  --surface-chip: #2B1A12;
+  --surface-iconbtn: #3A2A1E;
+  --surface-combo: #2A1020;
+  --surface-well: #1B0E08;      /* patience + meter trough */
+  --surface-tag: #54341F;
+  --surface-ok: #2E6B45;
+  --surface-no: #8C2E26;
+  --surface-prep-done: #33452F;
+  --surface-prep-empty: #4E2420;
+  --surface-upico: linear-gradient(160deg, #6B4F3A, #3A2618); /* @kind color */
+  --surface-disabled: #4A3A2C;
+  --surface-overlay: radial-gradient(120% 90% at 50% 30%, rgba(70,30,16,.80), rgba(8,4,2,.92)); /* @kind color */
+
+  /* ---- button faces ---- */
+  --btn-brass: linear-gradient(180deg, var(--brass-hi) 0%, var(--brass) 55%, var(--brass-lo) 100%); /* @kind color */
+  --btn-ghost: linear-gradient(180deg, #6B5140, #42301F); /* @kind color */
+  --btn-hot: linear-gradient(180deg, #FF8C6B, var(--salsa)); /* @kind color */
+  --btn-go: linear-gradient(180deg, #8CF0A8, #2FB566); /* @kind color */
+
+  /* ---- text ---- */
+  --text-body: #F2E9DC;
+  --text-head: #FFE9BC;
+  --text-lead: #FFF1DC;
+  --text-soft: #EBD9C0;
+  --text-muted: #CBB69C;
+  --text-faint: #C3AE94;
+  --text-label: #D6C0A4;
+  --text-value: #FFF0D6;
+  --text-on-brass: #2A1608;
+  --text-on-ink: #FFEDD2;
+  --text-title: #FFD97A;
+  --text-tagline: #D8C3A6;
+  --text-slip: var(--ink);
+  --text-slip-extra: #8A5A12;
+  --text-slip-no: #9A3226;
+  --text-pos: #9BF0B2;
+  --text-neg: #FF9B92;
+  --text-ok: #C8FFD9;
+  --text-no: #FFD4CE;
+  --text-disabled: #9A8973;
+  --text-star-empty: #5A4636;
+  --text-combo: #FFD9F4;
+
+  /* ---- venue + event tints ---- */
+  --tint-ramadan: #4A4A8C;
+  --tint-school: #E0913A;
+  --tint-critic: #8A6FB0;
+}

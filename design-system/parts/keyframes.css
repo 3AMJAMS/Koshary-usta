@@ -1,0 +1,74 @@
+/* Named animations from the source, verbatim timings. The house move is a
+   spring that overshoots and settles; nothing in this game eases out politely. */
+
+/* a thing arrives: overshoot past its resting size, then settle */
+@keyframes ks-card-in {
+  0% { opacity: 0; transform: translateY(22px) scale(.93); }
+  100% { opacity: 1; transform: none; }
+}
+/* the order slip flutters down onto the spike */
+@keyframes ks-slip-in {
+  0% { transform: translateY(-18px) rotate(-6deg) scale(.86); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+/* the slip acknowledges a scoop */
+@keyframes ks-slip-tick {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.035) rotate(.6deg); }
+  100% { transform: scale(1); }
+}
+/* money landed: the chip punches and tilts */
+@keyframes ks-chip-bump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.22) rotate(-3deg); }
+  100% { transform: scale(1); }
+}
+/* a floating score pop: up, over-scale, drift away */
+@keyframes ks-pop-up {
+  0% { opacity: 0; transform: translate(-50%, 10px) scale(.4) rotate(-12deg); }
+  22% { opacity: 1; transform: translate(-50%, -10px) scale(1.25) rotate(4deg); }
+  38% { transform: translate(-50%, -16px) scale(1) rotate(-2deg); }
+  100% { opacity: 0; transform: translate(-50%, -58px) scale(.95) rotate(0); }
+}
+/* a star is earned — the bounciest curve in the game, staggered 160ms */
+@keyframes ks-star-pop {
+  0% { opacity: 0; transform: scale(.2) rotate(-40deg); }
+  60% { opacity: 1; transform: scale(1.35) rotate(9deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+/* THE FLOOD — the rush-hour title card */
+@keyframes ks-rush-in {
+  0% { opacity: 0; transform: scale(.3) rotate(-14deg); }
+  16% { opacity: 1; transform: scale(1.3) rotate(5deg); }
+  26% { transform: scale(1) rotate(-2deg); }
+  74% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.35); }
+}
+@keyframes ks-rush-pulse { 0%, 100% { opacity: .55 } 50% { opacity: 1 } }
+/* patience is nearly out */
+@keyframes ks-patience-panic {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+/* a vat has run dry */
+@keyframes ks-prep-warn {
+  0%, 100% { box-shadow: var(--shadow-up); }
+  50% { box-shadow: var(--ring-prep-warn); }
+}
+/* the whole frame takes a hit (a spill, a walkout) */
+@keyframes ks-shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+/* the title sign swings on its hooks */
+@keyframes ks-title-bob {
+  0%, 100% { transform: rotate(-1.4deg) translateY(0); }
+  50% { transform: rotate(1.4deg) translateY(-4px); }
+}
+/* a button asking to be pressed */
+@keyframes ks-btn-pulse {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(-3px) scale(1.02); }
+}

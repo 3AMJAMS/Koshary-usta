@@ -1,0 +1,82 @@
+/* Cairo + Lalezar, loaded in tokens/fonts.css. Both carry Arabic and Latin,
+   which is why the game can ship one type system for both scripts.
+   Lalezar has ONE weight — always set display at font-weight:400 and give it
+   an ink text-shadow instead of reaching for a heavier cut. */
+:root {
+  --font-ui: "Cairo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Lalezar", "Cairo", system-ui, sans-serif;
+
+  /* Cairo ships 400/600/800/900. The game leans on 800 and 900 for UI. */
+  --fw-regular: 400; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 800; /* @kind font */
+  --fw-black: 900; /* @kind font */
+  --fw-display: 400; /* @kind font */
+
+  /* Display sizes, as used */
+  --fs-title: 50px;        /* #titleWrap .t2 */
+  --fs-rush: 38px;         /* RUSH HOUR flash */
+  --fs-card-h2: 27px;      /* overlay card heading */
+  --fs-event: 22px;        /* daily-news headline */
+  --fs-pop: 21px;          /* floating score pop */
+  --fs-pop-big: 31px;
+  --fs-star: 31px;
+  --fs-combo: 19px;
+  --fs-card-h3: 19px;
+  --fs-slip-name: 16px;
+  --fs-up-title: 16px;
+  --fs-prep-title: 15.5px;
+  --fs-eyebrow-disp: 16px; /* .t1 */
+
+  /* UI sizes, as used */
+  --fs-btn: 14px;
+  --fs-iconbtn: 14px;
+  --fs-card-body: 13.5px;
+  --fs-chip-value: 13.5px;
+  --fs-row: 13px;
+  --fs-toast: 13px;
+  --fs-chip: 12.5px;
+  --fs-shout: 12.5px;
+  --fs-event-body: 12.5px;
+  --fs-upbuy: 12.5px;
+  --fs-slip: 12px;
+  --fs-hint: 12px;
+  --fs-tagline: 12px;
+  --fs-tag: 11.5px;
+  --fs-up-desc: 11.5px;
+  --fs-combo-label: 11px;
+  --fs-prep-sub: 11px;
+  --fs-event-kicker: 11px;
+  --fs-eyebrow: 11px;
+  --fs-kbd: 11px;
+  --fs-slip-no: 10.5px;
+  --fs-prep-qty: 10.5px;
+  --fs-slip-who: 10px;
+  --fs-btn-sub: 10px;
+
+  /* Line heights */
+  --lh-tight: 1; /* @kind font */
+  --lh-display: 1.15; /* @kind font */
+  --lh-title: .95; /* @kind font */
+  --lh-snug: 1.2; /* @kind font */
+  --lh-slip: 1.45; /* @kind font */
+  --lh-body: 1.5; /* @kind font */
+  --lh-prose: 1.65; /* @kind font */
+
+  /* Letter spacing */
+  --ls-title: 2px;         /* .t1 kicker */
+  --ls-kicker: 1px;        /* event kicker */
+  --ls-combo: .4px;
+  --ls-chip: .2px;
+
+  /* The display ink drop — how Lalezar gets its weight. */
+  --shadow-text-display: 0 2.5px 0 var(--ink);
+  --shadow-text-display-lg: 0 3px 0 var(--ink), 0 5px 0 var(--ink), 0 7px 0 rgba(0,0,0,.35), 0 0 26px rgba(255,150,60,.45);
+  --shadow-text-sm: 0 2px 0 var(--ink);
+
+  /* Outlined display type (pops, rush, stars) uses stroke, not shadow. */
+  --stroke-pop: 3.5px; /* @kind other */
+  --stroke-pop-big: 4.5px; /* @kind other */
+  --stroke-rush: 6px; /* @kind other */
+  --stroke-star: 2.5px; /* @kind other */
+}

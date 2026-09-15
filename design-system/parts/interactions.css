@@ -1,0 +1,70 @@
+/* Press behaviour is physical and identical everywhere: the element travels
+   DOWN by exactly the height of its ink slab, and the slab goes to zero. Never
+   fade or scale a press instead — the collapse is the whole effect.
+   Opt in with the data attributes; do not re-implement per component. */
+
+[data-ks-press] {
+  cursor: pointer;
+  transition: transform var(--dur-press), box-shadow var(--dur-press);
+}
+[data-ks-press]:active {
+  transform: translateY(var(--press-btn));
+  box-shadow: var(--shadow-btn-press);
+}
+[data-ks-press="upbuy"]:active {
+  transform: translateY(var(--press-upbuy));
+  box-shadow: none;
+}
+[data-ks-press="icon"]:active {
+  transform: translateY(var(--press-iconbtn));
+  box-shadow: none;
+}
+/* prep cards shrink a hair as well as drop — they are big soft targets */
+[data-ks-press="prep"] {
+  transition: transform var(--dur-prep-press);
+}
+[data-ks-press="prep"]:active {
+  transform: translateY(var(--press-prep)) scale(.99);
+}
+[data-ks-press="row"]:active { transform: scale(.985); }
+[data-ks-press]:disabled,
+[data-ks-press][aria-disabled="true"] {
+  opacity: .42;
+  pointer-events: none;
+}
+
+/* Focus: a paper-coloured ring inside an ink ring, so it reads on the steel
+   rail, the night wall and the brass button alike. */
+[data-ks-press]:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-btn), 0 0 0 2px var(--paper), 0 0 0 5px var(--ink);
+}
+
+/* Owned / locked dimming, from .up.own and .up.locked */
+[data-ks-state="owned"] { opacity: .62; }
+[data-ks-state="locked"] { opacity: .45; filter: grayscale(.6); }
+
+/* ---- mirroring ----
+   The game ships Arabic-first (<html lang="ar" dir="rtl">) and mirrors to
+   English. Use logical properties only. Food, faces, numerals and the bowl
+   never flip; only chrome and directional glyphs do. */
+[data-ks-flip] { transition: transform var(--dur-fade); }
+[dir="rtl"] [data-ks-flip] { transform: scaleX(-1); }
+[data-ks-numeric] {
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+.ltr, ltr { direction: ltr; display: inline-block; }
+
+/* Display type needs its ink drop to read as weight — Lalezar has one cut. */
+[data-ks-display] {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  text-shadow: var(--shadow-text-sm);
+}
+/* Outlined display type (score pops, the rush flash, lit stars). */
+[data-ks-outline] {
+  -webkit-text-stroke: var(--stroke-pop) var(--ink);
+  paint-order: stroke fill;
+}

@@ -1,0 +1,10 @@
+<!-- @dsCard group="Type" viewport="700x175" name="HUD numerals" subtitle="Tabular, black weight, always LTR even under RTL" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:16px;background:var(--surface-page);font-family:var(--font-ui);color:var(--text-body)}.lbl{font:var(--fw-bold) 10px/1.2 var(--font-ui);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--text-muted)}.mono{font:var(--fw-semibold) 11px/1.4 ui-monospace,monospace;color:var(--text-muted)}</style>
+</head><body><div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap">
+<span data-ks-numeric style="font:var(--fw-black) var(--fs-hud-lg)/1 var(--font-numeric);color:var(--text-strong)">1,240</span>
+<span data-ks-numeric style="font:var(--fw-black) var(--fs-hud)/1 var(--font-numeric);color:var(--brass-600)">×3</span>
+<span data-ks-numeric style="font:var(--fw-black) var(--fs-hud-sm)/1 var(--font-numeric);color:var(--herb-600)">4.6</span>
+<span data-ks-numeric style="font:var(--fw-bold) var(--fs-body)/1 var(--font-numeric);color:var(--text-muted)">08:41</span></div>
+<p class="mono" style="margin:12px 0 0">[data-ks-numeric] sets tabular-nums + direction:ltr + unicode-bidi:isolate, so a counter never jitters or flips.</p></body></html>

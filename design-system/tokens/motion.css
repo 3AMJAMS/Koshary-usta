@@ -1,0 +1,51 @@
+/* Every easing in the game overshoots. The house curve is cubic-bezier(.34,1.7,.5,1)
+   — a spring with real overshoot — varied between 1.5 and 1.9 on the third
+   term depending on how bouncy the element should feel. Stars are the bounciest
+   (1.9), cards the calmest (1.6). Bars and timers move LINEARLY. */
+:root {
+  --ease-spring: cubic-bezier(.34, 1.7, .5, 1);       /* @kind other */
+  --ease-spring-card: cubic-bezier(.34, 1.6, .5, 1);  /* @kind other */
+  --ease-spring-pop: cubic-bezier(.34, 1.8, .5, 1);   /* @kind other */
+  --ease-spring-star: cubic-bezier(.34, 1.9, .5, 1);  /* @kind other */
+  --ease-spring-meter: cubic-bezier(.34, 1.5, .5, 1); /* @kind other */
+  --ease-pop-score: cubic-bezier(.2, 1.5, .4, 1);     /* @kind other */
+  --ease-shake: cubic-bezier(.36, .07, .19, .97);     /* @kind other */
+
+  --dur-press: 70ms;        /* @kind other */
+  --dur-prep-press: 80ms;   /* @kind other */
+  --dur-bar: 120ms;         /* @kind other */
+  --dur-patience: 180ms;    /* @kind other */
+  --dur-fade: 200ms;        /* @kind other */
+  --dur-combo: 220ms;       /* @kind other */
+  --dur-slip-tick: 220ms;   /* @kind other */
+  --dur-balloon: 260ms;     /* @kind other */
+  --dur-shake: 320ms;       /* @kind other */
+  --dur-slip-in: 340ms;     /* @kind other */
+  --dur-event: 340ms;       /* @kind other */
+  --dur-meter: 350ms;       /* @kind other */
+  --dur-chip-bump: 360ms;   /* @kind other */
+  --dur-card-in: 380ms;     /* @kind other */
+  --dur-panic: 380ms;       /* @kind other */
+  --dur-star: 450ms;        /* @kind other */
+  --dur-pop: 1100ms;        /* @kind other */
+  --dur-prep-warn: 1500ms;  /* @kind other */
+  --dur-btn-pulse: 1100ms;  /* @kind other */
+  --dur-rush: 1700ms;       /* @kind other */
+  --dur-title-bob: 3200ms;  /* @kind other */
+
+  --stagger-star: 160ms; /* @kind other */
+  --bpm: 104; /* @kind other */               /* the music tape, and the rhythm-bonus window */
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-press: 1ms; /* @kind other */
+    --dur-bar: 1ms; /* @kind other */
+    --dur-fade: 1ms; /* @kind other */
+    --dur-event: 1ms; /* @kind other */
+    --dur-card-in: 1ms; /* @kind other */
+    --dur-star: 1ms; /* @kind other */
+    --dur-pop: 1ms; /* @kind other */
+    --dur-rush: 1ms; /* @kind other */
+    --dur-title-bob: 1ms; /* @kind other */
+  }
+}

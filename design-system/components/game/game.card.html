@@ -1,0 +1,62 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Game" subtitle="Order slip, steel vessels, the bowl, prep batches, judgement pops and bill rows" -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="utf-8"><title>Game</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>html,body{margin:0;background:var(--night);font-family:var(--font-ui);color:var(--text-body)}#root{padding:14px}a{color:var(--brass-hi)}a:hover{color:var(--brass)}.r{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.lbl{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--text-faint);width:100%;margin:2px 0 -2px}</style>
+</head><body><div id="root"></div>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { OrderTicket, IngredientVat, KosharyBowl, ServeFeedback, PrepCard, StatRows, StatRow, CustomerFigure, KS_GLYPHS } = window.KosharyUstaDesignSystem_f12ad9;
+ReactDOM.createRoot(document.getElementById('root')).render(<>
+  <div style={{display:'flex',gap:14,alignItems:'flex-start',flexWrap:'wrap'}}>
+    <div>
+      <div className="lbl">OrderTicket — slang, extra, refused</div>
+      <OrderTicket no={12} name="كبير" who="بيطلب بلغة المحل" whoIcon={KS_GLYPHS.regular} lang="ar" slang
+        lines={[{key:'ruz',qty:2},{key:'ads',qty:1},{key:'taqleya',qty:2,state:'ex'},{key:'salsa',state:'no'}]} total="20" style={{width:190}} />
+    </div>
+    <div>
+      <div className="lbl">Vessels — vat · pot · sauce · tray</div>
+      <div className="r">
+        <IngredientVat ingredient="ruz" level={78} count={2} active lang="en" />
+        <IngredientVat ingredient="homos" level={58} lang="en" />
+        <IngredientVat ingredient="salsa" level={44} lang="en" />
+        <IngredientVat ingredient="taqleya" level={18} steam={false} empty lang="en" />
+      </div>
+    </div>
+    <div>
+      <div className="lbl">KosharyBowl · pops</div>
+      <div className="r">
+        <KosharyBowl size={128} steam layers={[{key:'ruz',amount:2},{key:'maca'},{key:'ads'},{key:'salsa'},{key:'taqleya'}]} />
+        <div style={{display:'flex',flexDirection:'column',gap:16,paddingInlineStart:10}}>
+          <ServeFeedback kind="perfect" big>+34 ج</ServeFeedback>
+          <ServeFeedback kind="kemala">Kemala ✓</ServeFeedback>
+          <ServeFeedback kind="spill">اتكبّ!</ServeFeedback>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div className="lbl">PrepCard — ready · running low</div>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,width:290}}>
+        <PrepCard title="عدس" sub="Ready" swatch="var(--ing-ads)" quality={86} quantity={74} servings="9" state="done" />
+        <PrepCard title="تقلية" sub="Running low" swatch="var(--ing-taqleya)" quality={62} quantity={18} servings="2" state="empty" />
+      </div>
+    </div>
+    <div>
+      <div className="lbl">StatRows · CustomerFigure</div>
+      <div className="r" style={{alignItems:'flex-start'}}>
+        <div style={{width:210}}>
+          <StatRows style={{margin:0}}>
+            <StatRow label="Takings" value="612" tone="pos" />
+            <StatRow label="Costs" value="−96" tone="neg" />
+            <StatRow label="Net" value="664" total />
+          </StatRows>
+        </div>
+        <CustomerFigure archetype="critic" patience={28} lang="en" size={74} />
+      </div>
+    </div>
+  </div>
+</>);
+</script></body></html>

@@ -1,0 +1,38 @@
+<!-- @dsCard group="Game" viewport="1280x720" name="Koshary Usta — game" subtitle="Title, level select, shift, shop and end-of-shift, click-through in EN and AR" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Koshary Usta — UI kit</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>html,body{margin:0;height:100%;background:#241611;font-family:var(--font-ui);overflow:hidden}#root{position:absolute;inset:0}#stage{position:absolute;inset-block-start:50%;inset-inline-start:50%;width:1280px;height:720px;overflow:hidden;transform-origin:0 0;box-shadow:0 30px 90px rgba(0,0,0,.6)}a{color:var(--clay-600)}a:hover{color:var(--clay-700)}</style>
+</head><body>
+<div id="root"></div>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="./Scene.jsx"></script>
+<script type="text/babel" src="./TitleScreen.jsx"></script>
+<script type="text/babel" src="./LevelSelect.jsx"></script>
+<script type="text/babel" src="./ShiftScreen.jsx"></script>
+<script type="text/babel" src="./ShopScreen.jsx"></script>
+<script type="text/babel" src="./ResultsScreen.jsx"></script>
+<script type="text/babel">
+function Game(){
+  const [screen,setScreen]=React.useState("title");
+  const [lang,setLang]=React.useState("en");
+  const p={lang,setLang};
+  return (<div id="stage">
+    {screen==="title"?<TitleScreen {...p} onPlay={()=>setScreen("levels")} onShop={()=>setScreen("shop")}/>:null}
+    {screen==="levels"?<LevelSelect {...p} onBack={()=>setScreen("title")} onStart={()=>setScreen("shift")}/>:null}
+    {screen==="shift"?<ShiftScreen {...p} onPause={()=>setScreen("levels")} onFinish={()=>setScreen("results")}/>:null}
+    {screen==="results"?<ResultsScreen {...p} onRetry={()=>setScreen("shift")} onShop={()=>setScreen("shop")} onNext={()=>setScreen("levels")}/>:null}
+    {screen==="shop"?<ShopScreen {...p} onBack={()=>setScreen("title")} onStart={()=>setScreen("shift")}/>:null}
+  </div>);
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Game/>);
+// fixed 1280x720 game canvas, scaled to whatever the viewport gives us
+function fit(){const s=document.getElementById("stage");if(!s)return;const k=Math.min(innerWidth/1280,innerHeight/720);s.style.transform=`translate(${-640*k}px,${-360*k}px) scale(${k})`}
+addEventListener("resize",fit);new MutationObserver(fit).observe(document.getElementById("root"),{childList:true,subtree:false});setTimeout(fit,60);
+</script>
+</body></html>
